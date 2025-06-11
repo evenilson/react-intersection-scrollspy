@@ -11,7 +11,8 @@ It automatically highlights the active section in the navigation menu based on t
 - Automatically detects the most visible section
 - High performance (no polling or manual calculations)
 - Dynamically observes section refs using `MutationObserver`
-- Optional `requestAnimationFrame` fallback for reliable first render detection
+- Uses `requestAnimationFrame` to ensure stable layout before observing
+- Optional fallback to handle static content on first render
 - Reusable with any section structure
 
 ## Installation
@@ -53,9 +54,10 @@ This project uses:
 ## How It Works
 This project includes a custom React hook called `useActiveSection` that:
 1. Accepts an object of `ref`s for each section;
-2. Uses IntersectionObserver to detect which sections are visible;
+2. Uses `IntersectionObserver` to detect which sections are visible;
 3. Calculates the visible area of each section;
-4. Updates the `activeSection` state based on the section with the largest visible area.
+4. Updates the `activeSection` state based on the section with the largest visible area;
+5. Uses `MutationObserver` and `requestAnimationFrame` to ensure reliable initialization, even in asynchronous or React 18 StrictMode environments.
 
 ## Usage Example
 ```tsx
@@ -74,6 +76,8 @@ const sectionRefs = useMemo(() => ({
 
 const activeSection = useActiveSection(sectionRefs);
 ```
+> `useMemo` is usde to ensure the sectionRefs object remains stable and does not cause the hook to render unnecessarily.
+
 ```tsx
 // In your navigation (e.g., Header.tsx)
 <a
@@ -83,6 +87,19 @@ const activeSection = useActiveSection(sectionRefs);
    Início
 </a>
 ```
+
+## Compatibility
+- React 16.8+
+- Full support for React 18 StrictMode
+- Ready for React 19+
+- Works with both client-side and server-rendered content (with fallback)
+
+
+
+## Conteúdos relacionados
+- [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+- [React Refs - React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html)
+- [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
+
 ---
 Made by [Evenilson Liandro](https://github.com/evenilson)
-
