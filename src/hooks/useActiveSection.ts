@@ -124,7 +124,7 @@ export function useActiveSection(sectionRefs: SectionRefMap, rootMargin = "-40% 
         fallbackRafId.current = null;
       }
     };
-  }, [sectionRefs, rootMargin]);
+  }, [sectionRefs, rootMargin, enableFallback]);
 
   return activeSection;
 }

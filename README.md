@@ -76,7 +76,7 @@ const sectionRefs = useMemo(() => ({
 
 const activeSection = useActiveSection(sectionRefs);
 ```
-> `useMemo` is usde to ensure the sectionRefs object remains stable and does not cause the hook to render unnecessarily.
+> `useMemo` is usude to ensure the sectionRefs object remains stable and does not cause the hook to render unnecessarily.
 
 ```tsx
 // In your navigation (e.g., Header.tsx)
@@ -93,8 +93,6 @@ const activeSection = useActiveSection(sectionRefs);
 - Full support for React 18 StrictMode
 - Ready for React 19+
 - Works with both client-side and server-rendered content (with fallback)
-
-
 
 ## Conteúdos relacionados
 - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
