@@ -94,7 +94,7 @@ const activeSection = useActiveSection(sectionRefs);
 - Ready for React 19+
 - Works with both client-side and server-rendered content (with fallback)
 
-## Conteúdos relacionados
+## Related content
 - [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 - [React Refs - React Docs](https://legacy.reactjs.org/docs/refs-and-the-dom.html)
 - [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
